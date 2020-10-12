@@ -22,7 +22,7 @@ from tests import utils
 @mock.patch("autokeras.AutoModel.evaluate")
 def test_tsf_evaluate_call_automodel_evaluate(evaluate, fit, tmp_path):
     auto_model = ak.TimeseriesForecaster(
-        lookback=10, directory=tmp_path, seed=utils.SEED
+#        lookback=10, directory=tmp_path, seed=utils.SEED
     )
 
     auto_model.fit(x=utils.TRAIN_CSV_PATH, y="survived")
@@ -35,7 +35,7 @@ def test_tsf_evaluate_call_automodel_evaluate(evaluate, fit, tmp_path):
 @mock.patch("autokeras.AutoModel.predict")
 def test_tsf_predict_call_automodel_predict(predict, fit, tmp_path):
     auto_model = ak.TimeseriesForecaster(
-        lookback=10, directory=tmp_path, seed=utils.SEED
+#        lookback=10, directory=tmp_path, seed=utils.SEED
     )
 
     auto_model.fit(x=utils.TRAIN_CSV_PATH, y="survived")
@@ -47,7 +47,7 @@ def test_tsf_predict_call_automodel_predict(predict, fit, tmp_path):
 @mock.patch("autokeras.AutoModel.fit")
 def test_tsf_fit_call_automodel_fit(fit, tmp_path):
     auto_model = ak.TimeseriesForecaster(
-        lookback=10, directory=tmp_path, seed=utils.SEED
+#        lookback=10, directory=tmp_path, seed=utils.SEED
     )
 
     auto_model.fit(

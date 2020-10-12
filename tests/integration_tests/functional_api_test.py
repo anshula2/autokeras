@@ -56,7 +56,7 @@ def test_text_and_structured_data(tmp_path):
         outputs=[regression_outputs, classification_outputs],
         max_trials=2,
         tuner=ak.Hyperband,
-        seed=utils.SEED,
+#        seed=utils.SEED,
     )
 
     automodel.fit(
@@ -86,7 +86,7 @@ def test_image_blocks(tmp_path):
         outputs=output_node,
         directory=tmp_path,
         max_trials=1,
-        seed=utils.SEED,
+#        seed=utils.SEED,
     )
 
     automodel.fit(x_train, y_train, validation_data=(x_train, y_train), epochs=1)

@@ -35,7 +35,7 @@ def test_greedy_oracle_populate_different_values(get_best_trials):
     hp = kerastuner.HyperParameters()
     utils.build_graph().build(hp)
 
-    oracle = greedy.GreedyOracle(objective="val_loss", seed=utils.SEED)
+#    oracle = greedy.GreedyOracle(objective="val_loss", seed=utils.SEED)
     trial = mock.Mock()
     trial.hyperparameters = hp
     get_best_trials.return_value = [trial]
@@ -56,7 +56,7 @@ def test_greedy_oracle_populate_doesnt_crash_with_init_hps(get_best_trials):
     oracle = greedy.GreedyOracle(
         initial_hps=task_specific.IMAGE_CLASSIFIER,
         objective="val_loss",
-        seed=utils.SEED,
+#        seed=utils.SEED,
     )
     trial = mock.Mock()
     trial.hyperparameters = hp
@@ -80,7 +80,7 @@ def test_greedy_oracle_stop_reach_max_collision(
     hp = kerastuner.HyperParameters()
     utils.build_graph().build(hp)
 
-    oracle = greedy.GreedyOracle(objective="val_loss", seed=utils.SEED)
+#    oracle = greedy.GreedyOracle(objective="val_loss", seed=utils.SEED)
     trial = mock.Mock()
     trial.hyperparameters = hp
     get_best_trials.return_value = [trial]
@@ -98,7 +98,7 @@ def test_greedy_oracle_stop_reach_max_collision(
 def test_greedy_oracle_populate_space_with_no_hp(get_best_trials):
     hp = kerastuner.HyperParameters()
 
-    oracle = greedy.GreedyOracle(objective="val_loss", seed=utils.SEED)
+#    oracle = greedy.GreedyOracle(objective="val_loss", seed=utils.SEED)
     trial = mock.Mock()
     trial.hyperparameters = hp
     get_best_trials.return_value = [trial]

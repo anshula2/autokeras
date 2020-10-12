@@ -28,7 +28,7 @@ def test_raise_error_unknown_str_in_col_type(tmp_path):
         ak.StructuredDataClassifier(
             column_types={"age": "num", "parch": "categorical"},
             directory=tmp_path,
-            seed=utils.SEED,
+#            seed=utils.SEED,
         )
 
     assert 'column_types should be either "categorical"' in str(info.value)
@@ -40,7 +40,7 @@ def test_structured_data_input_name_type_mismatch_error(tmp_path):
             column_types={"_age": "numerical", "parch": "categorical"},
             column_names=["age", "fare"],
             directory=tmp_path,
-            seed=utils.SEED,
+#            seed=utils.SEED,
         )
         clf.fit(x=utils.TRAIN_CSV_PATH, y="survived")
 
@@ -52,7 +52,7 @@ def test_structured_data_col_type_no_name_error(tmp_path):
         clf = ak.StructuredDataClassifier(
             column_types={"age": "numerical", "parch": "categorical"},
             directory=tmp_path,
-            seed=utils.SEED,
+#            seed=utils.SEED,
         )
         clf.fit(x=np.random.rand(100, 30), y=np.random.rand(100, 1))
 
@@ -63,7 +63,7 @@ def test_structured_data_col_type_no_name_error(tmp_path):
 def test_structured_data_get_col_names_from_df(fit, tmp_path):
     clf = ak.StructuredDataClassifier(
         directory=tmp_path,
-        seed=utils.SEED,
+#        seed=utils.SEED,
     )
     clf.fit(x=utils.TRAIN_CSV_PATH, y="survived")
 
@@ -73,7 +73,7 @@ def test_structured_data_get_col_names_from_df(fit, tmp_path):
 @mock.patch("autokeras.AutoModel.fit")
 @mock.patch("autokeras.AutoModel.evaluate")
 def test_structured_clf_evaluate_call_automodel_evaluate(evaluate, fit, tmp_path):
-    auto_model = ak.StructuredDataClassifier(directory=tmp_path, seed=utils.SEED)
+#    auto_model = ak.StructuredDataClassifier(directory=tmp_path, seed=utils.SEED)
 
     auto_model.fit(x=utils.TRAIN_CSV_PATH, y="survived")
     auto_model.evaluate(x=utils.TRAIN_CSV_PATH, y="survived")
@@ -84,7 +84,7 @@ def test_structured_clf_evaluate_call_automodel_evaluate(evaluate, fit, tmp_path
 @mock.patch("autokeras.AutoModel.fit")
 @mock.patch("autokeras.AutoModel.predict")
 def test_structured_clf_predict_csv_call_automodel_predict(predict, fit, tmp_path):
-    auto_model = ak.StructuredDataClassifier(directory=tmp_path, seed=utils.SEED)
+#    auto_model = ak.StructuredDataClassifier(directory=tmp_path, seed=utils.SEED)
 
     auto_model.fit(x=utils.TRAIN_CSV_PATH, y="survived")
     auto_model.predict(x=utils.TEST_CSV_PATH)
@@ -94,7 +94,7 @@ def test_structured_clf_predict_csv_call_automodel_predict(predict, fit, tmp_pat
 
 @mock.patch("autokeras.AutoModel.fit")
 def test_structured_clf_fit_call_auto_model_fit(fit, tmp_path):
-    auto_model = ak.StructuredDataClassifier(directory=tmp_path, seed=utils.SEED)
+#    auto_model = ak.StructuredDataClassifier(directory=tmp_path, seed=utils.SEED)
 
     auto_model.fit(
         x=pd.read_csv(utils.TRAIN_CSV_PATH).to_numpy().astype(np.unicode)[:100],
@@ -106,7 +106,7 @@ def test_structured_clf_fit_call_auto_model_fit(fit, tmp_path):
 
 @mock.patch("autokeras.AutoModel.fit")
 def test_structured_reg_fit_call_auto_model_fit(fit, tmp_path):
-    auto_model = ak.StructuredDataRegressor(directory=tmp_path, seed=utils.SEED)
+#    auto_model = ak.StructuredDataRegressor(directory=tmp_path, seed=utils.SEED)
 
     auto_model.fit(
         x=pd.read_csv(utils.TRAIN_CSV_PATH).to_numpy().astype(np.unicode)[:100],
@@ -118,7 +118,7 @@ def test_structured_reg_fit_call_auto_model_fit(fit, tmp_path):
 
 @mock.patch("autokeras.AutoModel.fit")
 def test_structured_data_clf_convert_csv_to_df_and_np(fit, tmp_path):
-    auto_model = ak.StructuredDataClassifier(directory=tmp_path, seed=utils.SEED)
+#    auto_model = ak.StructuredDataClassifier(directory=tmp_path, seed=utils.SEED)
 
     auto_model.fit(
         x=utils.TRAIN_CSV_PATH,
