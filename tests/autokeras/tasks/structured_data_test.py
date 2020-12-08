@@ -73,7 +73,7 @@ def test_structured_data_get_col_names_from_df(fit, tmp_path):
 @mock.patch("autokeras.AutoModel.fit")
 @mock.patch("autokeras.AutoModel.evaluate")
 def test_structured_clf_evaluate_call_automodel_evaluate(evaluate, fit, tmp_path):
-#    auto_model = ak.StructuredDataClassifier(directory=tmp_path, seed=utils.SEED)
+    auto_model = ak.StructuredDataClassifier(directory=tmp_path)
 
     auto_model.fit(x=utils.TRAIN_CSV_PATH, y="survived")
     auto_model.evaluate(x=utils.TRAIN_CSV_PATH, y="survived")
@@ -84,7 +84,7 @@ def test_structured_clf_evaluate_call_automodel_evaluate(evaluate, fit, tmp_path
 @mock.patch("autokeras.AutoModel.fit")
 @mock.patch("autokeras.AutoModel.predict")
 def test_structured_clf_predict_csv_call_automodel_predict(predict, fit, tmp_path):
-#    auto_model = ak.StructuredDataClassifier(directory=tmp_path, seed=utils.SEED)
+    auto_model = ak.StructuredDataClassifier(directory=tmp_path)
 
     auto_model.fit(x=utils.TRAIN_CSV_PATH, y="survived")
     auto_model.predict(x=utils.TEST_CSV_PATH)
@@ -94,7 +94,7 @@ def test_structured_clf_predict_csv_call_automodel_predict(predict, fit, tmp_pat
 
 @mock.patch("autokeras.AutoModel.fit")
 def test_structured_clf_fit_call_auto_model_fit(fit, tmp_path):
-#    auto_model = ak.StructuredDataClassifier(directory=tmp_path, seed=utils.SEED)
+    auto_model = ak.StructuredDataClassifier(directory=tmp_path)
 
     auto_model.fit(
         x=pd.read_csv(utils.TRAIN_CSV_PATH).to_numpy().astype(np.unicode)[:100],
@@ -106,7 +106,7 @@ def test_structured_clf_fit_call_auto_model_fit(fit, tmp_path):
 
 @mock.patch("autokeras.AutoModel.fit")
 def test_structured_reg_fit_call_auto_model_fit(fit, tmp_path):
-#    auto_model = ak.StructuredDataRegressor(directory=tmp_path, seed=utils.SEED)
+    auto_model = ak.StructuredDataRegressor(directory=tmp_path)
 
     auto_model.fit(
         x=pd.read_csv(utils.TRAIN_CSV_PATH).to_numpy().astype(np.unicode)[:100],
@@ -118,7 +118,7 @@ def test_structured_reg_fit_call_auto_model_fit(fit, tmp_path):
 
 @mock.patch("autokeras.AutoModel.fit")
 def test_structured_data_clf_convert_csv_to_df_and_np(fit, tmp_path):
-#    auto_model = ak.StructuredDataClassifier(directory=tmp_path, seed=utils.SEED)
+    auto_model = ak.StructuredDataClassifier(directory=tmp_path)
 
     auto_model.fit(
         x=utils.TRAIN_CSV_PATH,

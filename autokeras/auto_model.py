@@ -127,9 +127,9 @@ class AutoModel(object):
         self.inputs = nest.flatten(inputs)
         self.outputs = nest.flatten(outputs)
         self.seed = seed
-        if seed:
-            np.random.seed(seed)
-            tf.random.set_seed(seed)
+        #if seed:
+            #np.random.seed(seed)
+            #tf.random.set_seed(seed)
         # TODO: Support passing a tuner instance.
         # Initialize the hyper_graph.
         graph = self._build_graph()
